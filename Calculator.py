@@ -48,6 +48,10 @@ class HoverButton(tk.Button):
 # Creating a custom font for the program to use
 Text_Font = tkFont.Font(family='Helvetica', size=12, weight='bold')
 
+# Strings that store what is being displayed on the two labels
+Display_String = "0"
+History_String = "There's no history yet."
+
 ########################################################### PROGRAM LOGIC ###############################################################
 
 ### Messing around with the functions of tkinter
@@ -78,14 +82,14 @@ def Init_GUI():
     Display = tk.Frame(Content)
     Display.place(relwidth="0.7", relheight="0.1")
 
-    Display_Text = tk.Label(Display, anchor="e", padx="5", font=Text_Font, text="0", fg="white", bg="#3f4349")
+    Display_Text = tk.Label(Display, anchor="e", padx="5", font=Text_Font, text=Display_String, fg="white", bg="#3f4349")
     Display_Text.place(relwidth="1", relheight="1")
 
     # Frame widget that shows the history of what calculations the user has performed
     History = tk.Frame(Content)
     History.place(anchor="ne", relx="1", relwidth="0.3", relheight="1")
 
-    History_Text = tk.Label(History, anchor="nw", padx="10", pady="10", font=Text_Font, text="There's no history yet.", 
+    History_Text = tk.Label(History, anchor="nw", padx="10", pady="10", font=Text_Font, text=History_String, 
     fg="white", bg="#33353a")
     History_Text.place(relwidth="1", relheight="1")
 
