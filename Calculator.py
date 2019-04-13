@@ -54,25 +54,12 @@ History_String = "There's no history yet."
 
 ########################################################### PROGRAM LOGIC ###############################################################
 
-### Messing around with the functions of tkinter
-def Application_Loop():
-
-    # This code fixes the blurry text that tkinter has when being used on Windows. I got this solution from Stack Overflow:
-    # https://stackoverflow.com/questions/36514158/tkinter-output-blurry-for-icon-and-text-python-2-7/43033405
-    if __name__ == "__main__":   
-        if 'win' in sys.platform:
-            ctypes.windll.shcore.SetProcessDpiAwareness(1)
-
-    # Creating the GUI
-    Init_GUI()
-
-    # Looping in the main window to accept User input
-    Window.mainloop()
-
 ### Setting up the GUI's layout (I reccomend minimizing this when not examining it)
 def Init_GUI():
+    
     # Importing Global Variables
     global Window
+    global Keypad
 
     # Content Frame that holds all of the sub widgets
     Content = tk.Frame(Window, height="600", width="800")
@@ -97,6 +84,12 @@ def Init_GUI():
     Keypad = tk.Frame(Content)
     Keypad.place(anchor="sw", rely="1", relwidth="0.7", relheight="0.9")
 
+### Creates the buttons in the keypad and tracks which button is pressed by the user
+def Track_Keypad():
+
+    # Importing global variables
+    global Keypad
+
     ### KEYPAD BUTTONS
     Clear_All = HoverButton(Keypad, text="CE", font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
     Clear_All.place(relwidth="0.25", relheight="0.2")
@@ -110,7 +103,8 @@ def Init_GUI():
     Divide = HoverButton(Keypad, text=chr(247), font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
     Divide.place(relx="0.75", relwidth="0.25", relheight="0.2")
 
-    Seven = HoverButton(Keypad, text="7", font=Text_Font, fg="white", activeforeground="white", bg="black", activebackground="#303338")
+    Seven = HoverButton(Keypad,
+    text="7", font=Text_Font, fg="white", activeforeground="white", bg="black", activebackground="#303338")
     Seven.place(rely="0.2", relwidth="0.25", relheight="0.2")
 
     Eight = HoverButton(Keypad, text="8", font=Text_Font, fg="white", activeforeground="white", bg="black", activebackground="#303338")
@@ -160,4 +154,15 @@ def Init_GUI():
 
 ########################################################### PROGRAM FLOW ################################################################
 
-Application_Loop()
+# This code fixes the blurry text that tkinter has when being used on Windows. I got this solution from Stack Overflow:
+# https://stackoverflow.com/questions/36514158/tkinter-output-blurry-for-icon-and-text-python-2-7/43033405
+if __name__ == "__main__":   
+    if 'win' in sys.platform:
+        ctypes.windll.shcore.SetProcessDpiAwareness(1)
+
+# Creating the GUI
+Init_GUI()
+Track_Keypad()
+
+# Looping in the main window to accept User input
+Window.mainloop()
