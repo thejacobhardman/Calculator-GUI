@@ -11,6 +11,7 @@
 # Importing pkgs
 import tkinter as tk
 import tkinter.font as tkFont
+from tkinter import messagebox
 import ctypes
 import sys
 import winsound as sound
@@ -37,7 +38,7 @@ class HoverButton(tk.Button):
         self['background'] = self.defaultBackground
 
 # Creating a custom font for the program to use
-Text_Font = tkFont.Font(family='Helvetica', size=12, weight='bold')
+Text_Font = tkFont.Font(family='Helvetica', size=14, weight='bold')
 
 # Strings that store what is being displayed on the two labels
 Display_String = tk.StringVar()
@@ -84,7 +85,7 @@ def Track_Keypad():
 
     ### KEYPAD BUTTONS
     Clear_All = HoverButton(Keypad, command=lambda: [Key_Pressed(10), Play_Sound(2)],
-     text="CE", font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
+    text="CE", font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
     Clear_All.place(relwidth="0.25", relheight="0.2")
 
     Clear = HoverButton(Keypad, command=lambda: [Key_Pressed(11), Play_Sound(2)],
@@ -92,7 +93,7 @@ def Track_Keypad():
     Clear.place(relx="0.25", relwidth="0.25", relheight="0.2")
 
     Delete = HoverButton(Keypad, command=lambda: [Key_Pressed(12), Play_Sound(2)],
-     text="Del", font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
+    text="Del", font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
     Delete.place(relx="0.5", relwidth="0.25", relheight="0.2")
 
     Divide = HoverButton(Keypad, command=lambda: [Key_Pressed(13), Play_Sound(1)],
@@ -104,31 +105,31 @@ def Track_Keypad():
     Seven.place(rely="0.2", relwidth="0.25", relheight="0.2")
 
     Eight = HoverButton(Keypad, command=lambda: [Key_Pressed(8), Play_Sound(1)],
-     text="8", font=Text_Font, fg="white", activeforeground="white", bg="black", activebackground="#303338")
+    text="8", font=Text_Font, fg="white", activeforeground="white", bg="black", activebackground="#303338")
     Eight.place(rely="0.2", relx="0.25", relwidth="0.25", relheight="0.2")
 
     Nine = HoverButton(Keypad, command=lambda: [Key_Pressed(9), Play_Sound(1)],
-     text="9", font=Text_Font, fg="white", activeforeground="white", bg="black", activebackground="#303338")
+    text="9", font=Text_Font, fg="white", activeforeground="white", bg="black", activebackground="#303338")
     Nine.place(rely="0.2", relx="0.5", relwidth="0.25", relheight="0.2")
 
     Multiply = HoverButton(Keypad, command=lambda: [Key_Pressed(14), Play_Sound(1)],
-     text="*", font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
+    text="*", font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
     Multiply.place(rely="0.2", relx="0.75", relwidth="0.25", relheight="0.2")
 
     Four = HoverButton(Keypad, command=lambda: [Key_Pressed(4), Play_Sound(1)],
-     text="4", font=Text_Font, fg="white", activeforeground="white", bg="black", activebackground="#303338")
+    text="4", font=Text_Font, fg="white", activeforeground="white", bg="black", activebackground="#303338")
     Four.place(rely="0.4", relwidth="0.25", relheight="0.2")
 
     Five = HoverButton(Keypad, command=lambda: [Key_Pressed(5), Play_Sound(1)],
-     text="5", font=Text_Font, fg="white", activeforeground="white", bg="black", activebackground="#303338")
+    text="5", font=Text_Font, fg="white", activeforeground="white", bg="black", activebackground="#303338")
     Five.place(rely="0.4", relx="0.25", relwidth="0.25", relheight="0.2")
 
     Six = HoverButton(Keypad, command=lambda: [Key_Pressed(6), Play_Sound(1)],
-     text="6", font=Text_Font, fg="white", activeforeground="white", bg="black", activebackground="#303338")
+    text="6", font=Text_Font, fg="white", activeforeground="white", bg="black", activebackground="#303338")
     Six.place(rely="0.4", relx="0.5", relwidth="0.25", relheight="0.2")
 
     Subtract = HoverButton(Keypad, command=lambda: [Key_Pressed(15), Play_Sound(1)],
-     text="-", font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
+    text="-", font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
     Subtract.place(rely="0.4", relx="0.75", relwidth="0.25", relheight="0.2")
 
     One = HoverButton(Keypad, command=lambda: [Key_Pressed(1), Play_Sound(1)],
@@ -144,11 +145,11 @@ def Track_Keypad():
     Three.place(rely="0.6", relx="0.5", relwidth="0.25", relheight="0.2")
 
     Add = HoverButton(Keypad, command=lambda: [Key_Pressed(16), Play_Sound(1)],
-     text="+", font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
+    text="+", font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
     Add.place(rely="0.6", relx="0.75", relwidth="0.25", relheight="0.2")
 
     Invert_Sign = HoverButton(Keypad, command=lambda: [Key_Pressed(19), Play_Sound(1)],
-     text=chr(177), font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
+    text=chr(177), font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
     Invert_Sign.place(rely="0.8", relwidth="0.25", relheight="0.2")
 
     Zero = HoverButton(Keypad, command=lambda: [Key_Pressed(0), Play_Sound(1)],
@@ -156,11 +157,11 @@ def Track_Keypad():
     Zero.place(rely="0.8", relx="0.25", relwidth="0.25", relheight="0.2")
 
     Decimal = HoverButton(Keypad, command=lambda: [Key_Pressed(18), Play_Sound(1)],
-     text=".", font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
+    text=".", font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
     Decimal.place(rely="0.8", relx="0.5", relwidth="0.25", relheight="0.2")
 
-    Equals = HoverButton(Keypad, command=lambda: [Key_Pressed(17), Play_Sound(2)],
-     text="=", font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
+    Equals = HoverButton(Keypad, command=lambda: [ Play_Sound(2), Key_Pressed(17)],
+    text="=", font=Text_Font, fg="white", activeforeground="white", bg="#191a1c", activebackground="#303338")
     Equals.place(rely="0.8", relx="0.75", relwidth="0.25", relheight="0.2")
 
 ### Updates the Display area with the numbers that the User enters based on input from Key_Track
@@ -205,9 +206,13 @@ def Key_Pressed(arg):
     elif arg == 16:
         Display_String.set(Display_String.get() + "+")
     elif arg == 17:
-        result = eval(Display_String.get())
-        History_String.set(History_String.get() + Display_String.get() + " = " + str(result) + "\n")
-        Display_String.set(result)
+        try:
+            result = eval(Display_String.get())
+            History_String.set(History_String.get() + Display_String.get() + " = " + str(result) + "\n")
+            Display_String.set(result)
+        except:
+            Play_Sound(3)
+            tk.messagebox.showerror("Error", "Invalid Operation")
     elif arg == 18:
         Display_String.set(Display_String.get() + ".")
     elif arg == 19:
@@ -220,6 +225,8 @@ def Play_Sound(arg):
         sound.PlaySound("Robot_blip-Marianne_Gagnon.wav", 1)
     elif arg == 2:
         sound.PlaySound("Robot_blip_2-Marianne_Gagnon.wav", 1)
+    elif arg == 3:
+        sound.PlaySound("A-Tone.wav", 1)
 
 ########################################################### PROGRAM FLOW ################################################################
 
