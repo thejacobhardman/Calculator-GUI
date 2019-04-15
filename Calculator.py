@@ -216,8 +216,12 @@ def Key_Pressed(arg):
     elif arg == 18:
         Display_String.set(Display_String.get() + ".")
     elif arg == 19:
-        result = eval(Display_String.get()) * -1
-        Display_String.set(result)
+        try:
+            result = eval(Display_String.get()) * -1
+            Display_String.set(result)
+        except:
+            Play_Sound(3)
+            tk.messagebox.showerror("Error", "Invalid Operation")
 
 ### Plays a sound when a button is pushed
 def Play_Sound(arg):
